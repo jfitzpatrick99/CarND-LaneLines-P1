@@ -1,0 +1,29 @@
+@startuml
+start
+:Add Contrast;
+note left
+    Adding contrast consists of painting
+    white'ish and yellow'ish pixels white
+    according to two RGB thresholds.
+    Pixels below the white threshold are
+    painted black to increase the contrast
+    in the image.
+end note
+:Grayscale;
+:Gaussian Blur;
+:Canny Edge Detector;
+:Mask Edges;
+note right
+    Edges outside of a given region of interest
+    are masked out. The region of interest is
+    the area of the image where we expect to find
+    the lane lines.
+end note
+:Hough Line Detection;
+:Calculate Lanes;
+note right
+    Lines not having an expected slope
+    are not included when calculating the lane lines.
+end note
+:Overlay Lanes on Input Image;
+@enduml
